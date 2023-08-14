@@ -53,13 +53,22 @@
     </div>
     </div>
     <script>
+      var fields =  ["Brand_Owner","Brand","Recipe","Discontinued","Target","Format","Type","kcal_100g","calculated_kcal_100g","Carb_Estimated","Carb","Protein","Fat","Fiber","Moisture","Ash","Ingredients","Misc_info","THB_100g","Tags","THB_day","Registration_No_TH_","Carb_per_dry_matter","Attachment","Plant_ingredients","Estimated_Plant_Score","THB_at_10_moisture_100g","Manufacturer","Qualified_Standard","feed_g_day","Product_code","Min_age_month_for_feeding","Questionable_ingredients_used","Sodium_used_in_ingredient_list"];
       grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
+        fields.forEach((element) => {
+          if(record[element] == "") {
+            document.getElementById(element).parentElement.style.display = "none";
+          }
+          else {
+            document.getElementById(element).innerHTML = record[element];
+          }
+        });/*
         for (const [key, value] of Object.entries(record)) {
           const p = document.createElement("p");
           p.innerHTML = `${key}`;
           document.getElementById('readout').appendChild(p);
-        }
+        }*/
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
