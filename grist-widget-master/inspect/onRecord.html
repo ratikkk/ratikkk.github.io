@@ -6,6 +6,21 @@
     <title>onRecord</title>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+      #display {
+        padding: 10px;
+      }
+      #display .row div {
+        padding: 5px;
+        background-color: #EEEEEE;
+        border: white solid thick;
+        
+      }
+      #display .row {
+        border-bottom:  1px gray;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="display">
@@ -57,18 +72,13 @@
       grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
         fields.forEach((element) => {
-          if(record[element] == "") {
-            document.getElementById(element).parentElement.style.display = "none";
-          }
-          else {
+          if(record[element]) {
             document.getElementById(element).innerHTML = record[element];
           }
-        });/*
-        for (const [key, value] of Object.entries(record)) {
-          const p = document.createElement("p");
-          p.innerHTML = `${key}`;
-          document.getElementById('readout').appendChild(p);
-        }*/
+          else {
+            document.getElementById(element).parentElement.style.display = "none";
+          }
+        });
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
