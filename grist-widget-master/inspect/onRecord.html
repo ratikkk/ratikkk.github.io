@@ -2,11 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>onRecord</title>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   <body>
-    <pre id="readout">Waiting for data...</pre>
+    <div id="display">
+      <h1>
+        <span id="Brand">Kippy</span> 
+        <span id="Recipe">Signature</span>
+      </h1>
+      <div class="row">
+        <div class="col-6 col-md-3">Brand_Owner: <span id="Brand_Owner">sth sth sth co., ltd.</span></div>
+        <div class="col-6 col-md-3">Registration_No_TH_: <span id="Registration_No_TH_"></span></div>
+        <div class="col-6 col-md-3">Discontinued: <span id="Discontinued">no</span></div>
+        <div class="col-6 col-md-3">Target: <span id="Target">All ages</span></div>
+        <div class="col-6 col-md-3">Format: <span id="Format">Dry</span></div>
+        <div class="col-6 col-md-3">Type: <span id="Type">Complete</span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-3">Protein: <span id="Protein"></span></div>
+        <div class="col-6 col-md-3">Fat: <span id="Fat"></span></div>
+        <div class="col-6 col-md-3">Fiber: <span id="Fiber"></span></div>
+        <div class="col-6 col-md-3">Moisture: <span id="Moisture"></span></div>
+        <div class="col-6 col-md-3">Ash: <span id="Ash"></span></div>
+        <div class="col-6 col-md-3">Carb: <span id="Carb"></span></div>
+        <div class="col-12 col-md-12">Ingredients: <span id="Ingredients">Poultry meal, Corn gluten meal, Rice, Palm stearine, Tallow, What gluten, Digested animal protein, Fish meal, Salmon oil, Poultry fat, Edible fiber (Cellulose), Dicalcium phosphate, Sun flower oil, Essential vitamins supplement (Vitamin A, Vitamin D3, Vitamin E, Vitamin C, Nicotinic acid, Vitamin B1, Vitamin B6, Pantothenic acid, Vitamin B2, Vitamin K3, Folic acid, Biotin, Vitamin B12) Essential trace minerals supplement (Iron, Zinc, Copper, Manganese, Iodine, Selenium), Monosodium phosphate, Choline chloride, Salt, Whole egg powder, Potassium chloride, Taurine, Fructo oligosaccharide, Lecithin, L-Lysine, Iron proteinate, Zinc proteinate, Manganese proteinate, Copper proteinate, Selenium yeast, Methionine, Enzyme, Emulsifier(glyceryl polyethyleneglycol ricinoleate), Preservative agent (Propionic acid, BHT, BHA), Hydrated sodium calcium aluminum silicate and Esterified glucomannan, Yucca schidigera extract, Evening primrose oil.</span></div>
+        <div class="col-6 col-md-3">kcal_100g: <span id="kcal_100g"></span></div>
+        <div class="col-6 col-md-3">Misc_info: <span id="Misc_info"></span></div>
+        <div class="col-6 col-md-3">Tags: <span id="Tags"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-3">calculated_kcal_100g: <span id="calculated_kcal_100g"></span></div>
+        <div class="col-6 col-md-3">Carb_Estimated: <span id="Carb_Estimated"></span></div>
+        <div class="col-6 col-md-3">THB_100g: <span id="THB_100g"></span></div>
+        <div class="col-6 col-md-3">THB_day: <span id="THB_day"></span></div>
+        <div class="col-6 col-md-3">Carb_per_dry_matter: <span id="Carb_per_dry_matter"></span></div>
+        <div class="col-6 col-md-3">Attachment: <span id="Attachment"></span></div>
+        <div class="col-6 col-md-3">Plant_ingredients: <span id="Plant_ingredients"></span></div>
+        <div class="col-6 col-md-3">Estimated_Plant_Score: <span id="Estimated_Plant_Score"></span></div>
+        <div class="col-6 col-md-3">THB_at_10_moisture_100g: <span id="THB_at_10_moisture_100g"></span></div>
+        <div class="col-6 col-md-3">Manufacturer: <span id="Manufacturer"></span></div>
+        <div class="col-6 col-md-3">Qualified_Standard: <span id="Qualified_Standard"></span></div>
+        <div class="col-6 col-md-3">feed_g_day: <span id="feed_g_day"></span></div>
+        <div class="col-6 col-md-3">Product_code: <span id="Product_code"></span></div>
+        <div class="col-6 col-md-3">Min_age_month_for_feeding: <span id="Min_age_month_for_feeding"></span></div>
+        <div class="col-6 col-md-3">Questionable_ingredients_used: <span id="Questionable_ingredients_used"></span></div>
+        <div class="col-6 col-md-3">Sodium_used_in_ingredient_list: <span id="Sodium_used_in_ingredient_list"></span></div>
+    </div>
+    </div>
     <script>
       grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
@@ -17,5 +62,6 @@
         }
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
