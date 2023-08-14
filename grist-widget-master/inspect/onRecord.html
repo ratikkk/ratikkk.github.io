@@ -47,12 +47,15 @@
         <div class="col-6 col-md-3">กาก: <span id="Fiber"></span>%</div>
         <div class="col-6 col-md-3">ความชื้น: <span id="Moisture"></span>%</div>
         <div class="col-6 col-md-3">เถ้า: <span id="Ash"></span>%</div>
+        <div class="col-6 col-md-3">พลังงานที่ให้ต่อ100กรัม: <span id="kcal_100g"></span> kcal</div>
         <div class="col-6 col-md-3">คาร์โบไฮเดรท: <span id="Carb"></span>%</div>
         <div class="col-12 col-md-12">ส่วนประกอบ: <span id="Ingredients"></span></div>
+        <div class="col-6 col-md-3"><span id="Plant_ingredients"></span></div>
+        <div class="col-6 col-md-3">ใส่แป้งหรือส่วนประกอบที่มีการแนะนำให้เลี่ยง: <span id="Questionable_ingredients_used"></span></div>
+        <div class="col-6 col-md-3">มีโซเดียมในส่วนประกอบ: <span id="Sodium_used_in_ingredient_list"></span></div>
+
       </div>
       <div class="row">
-        <div class="col-6 col-md-3">สรุปส่วนประกอบจากพืช: <span id="Plant_ingredients"></span></div>
-        <div class="col-6 col-md-3">พลังงานที่ให้ต่อ100กรัม: <span id="kcal_100g"></span> kcal</div>
         <div class="col-6 col-md-3">ข้อมูลเพิ่มเติม: <span id="Misc_info"></span></div>
         <div class="col-6 col-md-3">Tags: <span id="Tags"></span></div>
       </div>
@@ -71,12 +74,14 @@
         <div class="col-6 col-md-3">ไฟล์แนบ: <span id="Attachment"></span></div>
         <div class="col-6 col-md-3">น่าจะใช้ส่วนประกอบจากพืชเท่าไหร่ในอาหาร: <span id="Estimated_Plant_Score"></span>%</div>
         <div class="col-6 col-md-3">ราคาต่อ100กรัม (ที่ความชื้น 10% ใช้เปรียบเทียบ): <span id="THB_at_10_moisture_100g"></span> บาท</div>
-        <div class="col-6 col-md-3">รหัสกระป๋อง: <span id="Product_code"></span></div>
-        <div class="col-6 col-md-3">ใส่แป้งหรือส่วนประกอบที่มีการแนะนำให้เลี่ยงไหม: <span id="Questionable_ingredients_used"></span></div>
-        <div class="col-6 col-md-3">มีโซเดียมในส่วนประกอบไหม: <span id="Sodium_used_in_ingredient_list"></span></div>
-    </div>
+        <div class="col-6 col-md-3">รหัสกระป๋อง: <span id="Product_code"></span></div>    </div>
     </div>
     <script>
+      function hideif(element, value) {
+        if(document.getElementById(element).innerText == value) {
+          document.getElementById(element).parentElement.style.display = "none";
+        }
+      }
       var fields =  ["Brand_Owner","Brand","Recipe","Discontinued","Target","Format","Type","kcal_100g","calculated_kcal_100g","Carb_Estimated","Carb","Protein","Fat","Fiber","Moisture","Ash","Ingredients","Misc_info","THB_100g","Tags","THB_day","Registration_No_TH_","Carb_per_dry_matter","Attachment","Plant_ingredients","Estimated_Plant_Score","THB_at_10_moisture_100g","Manufacturer","Qualified_Standard","feed_g_day","Product_code","Min_age_month_for_feeding","Questionable_ingredients_used","Sodium_used_in_ingredient_list"];
       grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
@@ -89,6 +94,8 @@
             document.getElementById(element).parentElement.style.display = "none";
           }
         });
+        hideif('Questionable_ingredients_used', 'No');
+        hideif('Sodium_used_in_ingredient_list', 'No');
       });
     </script>
   </body>
