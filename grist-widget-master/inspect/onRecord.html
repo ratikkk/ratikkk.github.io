@@ -11,7 +11,7 @@
       grist.ready();
       grist.onRecord(function(record) {
         var rec = record;
-        document.write(record);
+        console.log(record);
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
       });
     </script>
