@@ -25,46 +25,50 @@
   <body>
     <div id="display">
       <h1>
-        <span id="Brand"></span> 
+        <span id="Brand"></span>, 
         <span id="Recipe"></span>
       </h1>
       <div class="row">
-        <div class="col-6 col-md-3">Brand_Owner: <span id="Brand_Owner"></span></div>
-        <div class="col-6 col-md-3">Registration_No_TH_: <span id="Registration_No_TH_"></span></div>
-        <div class="col-6 col-md-3">Discontinued: <span id="Discontinued"></span></div>
-        <div class="col-6 col-md-3">Target: <span id="Target"></span></div>
-        <div class="col-6 col-md-3">Format: <span id="Format"></span></div>
-        <div class="col-6 col-md-3">Type: <span id="Type"></span></div>
+        <div class="col-6 col-md-3">บริษัท: <span id="Brand_Owner"></span></div>
+        <div class="col-6 col-md-3">ทะเบียนอาหารสัตว์: <span id="Registration_No_TH_"></span></div>
+        <div class="col-6 col-md-3">เลิกผลิตแล้ว: <span id="Discontinued"></span></div>
+        <div class="col-6 col-md-3">สำหรับ: <span id="Target"></span></div>
+        <div class="col-6 col-md-3">ประเภท: <span id="Format"></span> <span>(<span id="Type"></span>)</span></div>
+        
       </div>
       <div class="row">
-        <div class="col-6 col-md-3">Protein: <span id="Protein"></span></div>
-        <div class="col-6 col-md-3">Fat: <span id="Fat"></span></div>
-        <div class="col-6 col-md-3">Fiber: <span id="Fiber"></span></div>
-        <div class="col-6 col-md-3">Moisture: <span id="Moisture"></span></div>
-        <div class="col-6 col-md-3">Ash: <span id="Ash"></span></div>
-        <div class="col-6 col-md-3">Carb: <span id="Carb"></span></div>
-        <div class="col-12 col-md-12">Ingredients: <span id="Ingredients"></span></div>
-        <div class="col-6 col-md-3">kcal_100g: <span id="kcal_100g"></span></div>
-        <div class="col-6 col-md-3">Misc_info: <span id="Misc_info"></span></div>
+        <div class="col-6 col-md-3">โปรตีน: <span id="Protein"></span></div>
+        <div class="col-6 col-md-3">ไขมัน: <span id="Fat"></span></div>
+        <div class="col-6 col-md-3">กาก: <span id="Fiber"></span></div>
+        <div class="col-6 col-md-3">ความชื้น: <span id="Moisture"></span></div>
+        <div class="col-6 col-md-3">เถ้า: <span id="Ash"></span></div>
+        <div class="col-6 col-md-3">คาร์โบไฮเดรท: <span id="Carb"></span></div>
+        <div class="col-12 col-md-12">ส่วนประกอบ: <span id="Ingredients"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-3">สรุปส่วนประกอบจากพืช: <span id="Plant_ingredients"></span></div>
+        <div class="col-6 col-md-3">พลังงานที่ให้ต่อ100กรัม (kcal): <span id="kcal_100g"></span></div>
+        <div class="col-6 col-md-3">ข้อมูลเพิ่มเติม: <span id="Misc_info"></span></div>
         <div class="col-6 col-md-3">Tags: <span id="Tags"></span></div>
       </div>
       <div class="row">
-        <div class="col-6 col-md-3">calculated_kcal_100g: <span id="calculated_kcal_100g"></span></div>
-        <div class="col-6 col-md-3">Carb_Estimated: <span id="Carb_Estimated"></span></div>
-        <div class="col-6 col-md-3">THB_100g: <span id="THB_100g"></span></div>
-        <div class="col-6 col-md-3">THB_day: <span id="THB_day"></span></div>
-        <div class="col-6 col-md-3">Carb_per_dry_matter: <span id="Carb_per_dry_matter"></span></div>
-        <div class="col-6 col-md-3">Attachment: <span id="Attachment"></span></div>
-        <div class="col-6 col-md-3">Plant_ingredients: <span id="Plant_ingredients"></span></div>
-        <div class="col-6 col-md-3">Estimated_Plant_Score: <span id="Estimated_Plant_Score"></span></div>
-        <div class="col-6 col-md-3">THB_at_10_moisture_100g: <span id="THB_at_10_moisture_100g"></span></div>
-        <div class="col-6 col-md-3">Manufacturer: <span id="Manufacturer"></span></div>
-        <div class="col-6 col-md-3">Qualified_Standard: <span id="Qualified_Standard"></span></div>
-        <div class="col-6 col-md-3">feed_g_day: <span id="feed_g_day"></span></div>
-        <div class="col-6 col-md-3">Product_code: <span id="Product_code"></span></div>
-        <div class="col-6 col-md-3">Min_age_month_for_feeding: <span id="Min_age_month_for_feeding"></span></div>
-        <div class="col-6 col-md-3">Questionable_ingredients_used: <span id="Questionable_ingredients_used"></span></div>
-        <div class="col-6 col-md-3">Sodium_used_in_ingredient_list: <span id="Sodium_used_in_ingredient_list"></span></div>
+        <div class="col-6 col-md-3">เริ่มกินได้ตั้งแต่กี่เดือน: <span id="Min_age_month_for_feeding"></span></div>
+        <div class="col-6 col-md-3">ผลิตโดย: <span id="Manufacturer"></span></div>
+        <div class="col-6 col-md-3">มาตรฐานโภชนาการ: <span id="Qualified_Standard"></span></div>
+        <div class="col-6 col-md-3">ราคาต่อ100กรัม: <span id="THB_100g"></span></div>
+        <div class="col-6 col-md-3">ค่าอาหารต่อวัน (ถ้ามีแมว1ตัว นน.5กก. ทำหมันแล้ว): <span id="THB_day"></span></div>
+        <div class="col-6 col-md-3">ให้กินวันละกี่กรัม (นน.5กก. ทำหมันแล้ว): <span id="feed_g_day"></span></div>
+        <div class="col-6 col-md-3">kcal ที่คำนวนจาก guaranteed analysis: <span id="calculated_kcal_100g"></span></div>
+        <div class="col-6 col-md-3">คาร์โบไฮเดรท (ประมาณจาก guaranteed analysis): <span id="Carb_Estimated"></span></div>
+        <div class="col-6 col-md-3">คาร์โบไฮเดรท dry matter basis: <span id="Carb_per_dry_matter"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-3">ไฟล์แนบ: <span id="Attachment"></span></div>
+        <div class="col-6 col-md-3">น่าจะใช้ส่วนประกอบจากพืชเท่าไหร่ในอาหาร: <span id="Estimated_Plant_Score"></span></div>
+        <div class="col-6 col-md-3">ราคาต่อ100กรัม (ที่ความชื้น 10% ใช้เปรียบเทียบ): <span id="THB_at_10_moisture_100g"></span></div>
+        <div class="col-6 col-md-3">รหัสกระป๋อง: <span id="Product_code"></span></div>
+        <div class="col-6 col-md-3">ใส่แป้งหรือส่วนประกอบที่มีการแนะนำให้เลี่ยงไหม: <span id="Questionable_ingredients_used"></span></div>
+        <div class="col-6 col-md-3">มีโซเดียมในส่วนประกอบไหม: <span id="Sodium_used_in_ingredient_list"></span></div>
     </div>
     </div>
     <script>
