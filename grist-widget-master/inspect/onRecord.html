@@ -8,11 +8,11 @@
   <body>
     <pre id="readout">Waiting for data...</pre>
     <script>
-      grist.ready();
+      grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
         for (const [key, value] of Object.entries(record)) {
           const p = document.createElement("p");
-          p.innerHTML = `${key}: ${value}`;
+          p.innerHTML = `${key}`;
           document.getElementById('readout').appendChild(p);
         }
       });
