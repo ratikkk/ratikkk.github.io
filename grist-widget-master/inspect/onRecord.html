@@ -11,8 +11,10 @@
       grist.ready();
       grist.onRecord(function(record) {
         for (const [key, value] of Object.entries(record)) {
-          console.log(`${key}: ${value}`);
-          document.write(`${key}: ${value}`);
+          const p = document.createElement("p");
+          p.innerHTML = `${key}: ${value}`;
+          document.getElementById('readout').appendChild(p);
+          console.log(value);
         }
       });
     </script>
