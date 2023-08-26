@@ -91,12 +91,11 @@
         fields.forEach((element) => {
           var val = record[element];
           if(val) {
-            if(val.match(/^[0-9.,]{1,}$/)) {
-              document.getElementById(element).innerHTML = Number(val).toFixed(2);
+            const regex = new RegExp('^[0-9.,]{1,}$');
+            if(regex.test(val)) {
+              val = Number(val).toFixed(2);
             }
-            else {
-              document.getElementById(element).innerHTML = val;
-            }
+            document.getElementById(element).innerHTML = val;
             document.getElementById(element).parentElement.style.display = "block";
           }
           else {
