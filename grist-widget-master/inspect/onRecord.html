@@ -89,12 +89,13 @@
       grist.ready({requiredAccess: 'read table'});
       grist.onRecord(function(record) {
         fields.forEach((element) => {
-          if(record[element]) {
-            if(record[element].match(/^[0-9.,]{1,}$/)) {
-              document.getElementById(element).innerHTML = Number(record[element]).toFixed(2);
+          var val = record[element];
+          if(val) {
+            if(val.match(/^[0-9.,]{1,}$/)) {
+              document.getElementById(element).innerHTML = Number(val).toFixed(2);
             }
             else {
-              document.getElementById(element).innerHTML = record[element];
+              document.getElementById(element).innerHTML = val;
             }
             document.getElementById(element).parentElement.style.display = "block";
           }
