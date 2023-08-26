@@ -90,7 +90,12 @@
       grist.onRecord(function(record) {
         fields.forEach((element) => {
           if(record[element]) {
-            document.getElementById(element).innerHTML = record[element].toFixed(2);
+            if(record[element].match(/^[0-9.,]{1,}$/)) {
+              document.getElementById(element).innerHTML = Number(record[element]).toFixed(2);
+            }
+            else {
+              document.getElementById(element).innerHTML = record[element];
+            }
             document.getElementById(element).parentElement.style.display = "block";
           }
           else {
