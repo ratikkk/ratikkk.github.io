@@ -90,7 +90,7 @@
       grist.onRecord(function(record) {
         fields.forEach((element) => {
           if(record[element]) {
-            document.getElementById(element).innerHTML = record[element];
+            document.getElementById(element).innerHTML = record[element].toFixed(2);
             document.getElementById(element).parentElement.style.display = "block";
           }
           else {
