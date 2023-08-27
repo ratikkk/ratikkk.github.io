@@ -1,8 +1,7 @@
 [
   {
     "Standard": "FEDIAF",
-    "Lifestage": "Adult",
-    "Note": "MER 75 kcal/kg",
+    "Lifestage": "Adult (MER 75 kcal/kg)",
     "Min": {
       "Protein": 33.3,
       "Fat": 9,
@@ -100,8 +99,7 @@
   },
   {
     "Standard": "FEDIAF",
-    "Lifestage": "Adult",
-    "Note": "MER 100 kcal/kg",
+    "Lifestage": "Adult (MER 100 kcal/kg)",
     "Min": {
       "Protein": 25,
       "Fat": 9,

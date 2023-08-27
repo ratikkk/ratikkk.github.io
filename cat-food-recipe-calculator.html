@@ -81,6 +81,7 @@
       db = db.replaceAll(/ {1,}"/g, '"');
       db = db.replaceAll(/"-"/g, '""');
       db = JSON.parse(db);
+      db.splice(0, 2);
       var categories = listall(alasql('SELECT DISTINCT Category FROM ?', [db]),"Category");
       populatelist(select_group, categories);
       filteringredients("", "All")
