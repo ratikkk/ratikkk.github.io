@@ -79,7 +79,7 @@
 
     var standards = fetch("https://ratikkk.github.io/cat-food-nutrition-standards.json");
     fetch("https://ratikkk.github.io/db.json").then(response => {
-      console.log(db);
+      console.log(response.json());
       db = JSON.stringify(response.json()).replaceAll(/" {1,}/g, '"');
       db = db.replaceAll(/ {1,}"/g, '"');
       db = db.replaceAll(/"-"/g, '""');
