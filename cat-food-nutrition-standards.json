@@ -1,7 +1,8 @@
 [
   {
     "Standard": "FEDIAF",
-    "Lifestage": "Adult (MER 75 kcal/kg)",
+    "Description": "Adult (MER 75 kcal/kg)",
+    "Lifestage": "Adult",
     "Min": {
       "Protein": 33.3,
       "Fat": 9,
@@ -99,7 +100,8 @@
   },
   {
     "Standard": "FEDIAF",
-    "Lifestage": "Adult (MER 100 kcal/kg)",
+    "Description": "Adult (MER 100 kcal/kg)",
+    "Lifestage": "Adult",
     "Min": {
       "Protein": 25,
       "Fat": 9,
@@ -393,7 +395,7 @@
   },
   {
     "Standard": "AAFCO",
-    "Lifestage": "Growth & Reproduction",
+    "Lifestage": ["Growth", "Reproduction"],
     "Min": {
       "Protein": 30,
       "Fat": 9,
@@ -491,7 +493,8 @@
   },
   {
     "Standard": "AAFCO",
-    "Lifestage": "Adult Maintenance",
+    "Description": "Adult Maintenance",
+    "Lifestage": "Adult",
     "Min": {
       "Protein": 26,
       "Fat": 9,
@@ -589,7 +592,8 @@
   },
   {
     "Standard": "NRC",
-    "Lifestage": "Adult over 12 months old",
+    "Description": "Adult over 12 months old",
+    "Lifestage": "Adult",
     "Note": "Per 1000kcal consumed",
     "Min": {
       "Protein": 40,
