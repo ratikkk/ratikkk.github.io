@@ -76,20 +76,16 @@
 
     var standards = fetch("https://ratikkk.github.io/cat-food-nutrition-standards.json");
     fetch("https://ratikkk.github.io/db.json").then(response => {
-        db = JSON.stringify(response.json()).replaceAll(/" {1,}/g, '"');
-        db = db.replaceAll(/ {1,}"/g, '"');
-        db = db.replaceAll(/"-"/g, '""');
-        db = JSON.parse(db);
+      db = JSON.stringify(response.json()).replaceAll(/" {1,}/g, '"');
+      db = db.replaceAll(/ {1,}"/g, '"');
+      db = db.replaceAll(/"-"/g, '""');
+      db = JSON.parse(db);
+      var categories = listall(alasql('SELECT DISTINCT Category FROM ?', [db]),"Category");
+      populatelist(select_group, categories);
+      filteringredients("", "All")
     });
 
-    //const result = db.filter((entry) => entry.Category == "Meat, cooked");
 
-    var categories = listall(alasql('SELECT DISTINCT Category FROM ?', [db]),"Category");
-
-    var ingredients = [];
-    for (i=0; i < categories.length; i++) {
-    ingredients[i] = listall(alasql('SELECT Name FROM ? WHERE Category = "'+categories[i]+'"', [db]), "Name");
-    }
 
     var select_group = $(".item select.group")[0];
     var select_ingredient = $(".item .ingredient select")[0];
@@ -97,8 +93,6 @@
 
 
     //onload
-    populatelist(select_group, categories);
-    filteringredients("All")
     $('.ui.dropdown').dropdown();
   </script>
 </body>
