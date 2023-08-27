@@ -29,7 +29,7 @@
           <input type="checkbox">
           <label></label>
         </div>
-        <select class="group ui dropdown" onchange="filteringredients(this.value)">
+        <select class="group ui dropdown" onchange="filteringredients(this.parentElement, this.value)">
           <option value="All">All</option>
         </select>
         <div class="ingredient ui icon input">
@@ -48,23 +48,30 @@
   </div>
   <script>
     function listall(obj, field) {
-    var out = [];
-    for (xx=0; xx<obj.length; xx++){
-        out.push(obj[xx][field]);
+      var out = [];
+      for (xx=0; xx<obj.length; xx++){
+          out.push(obj[xx][field]);
+      }
+      return out;
     }
-    return out;
-    }
-
     function populatelist(target, arr) {
-    while (target.children.length > 1) {
-        target.removeChild(target.children[1]);
+      while (target.children.length > 1) {
+          target.removeChild(target.children[1]);
+      }
+      for(yy = 0; yy < arr.length; yy++) {
+          el = document.createElement("option");
+          el.value = arr[yy];
+          el.innerText = arr[yy];
+          target.appendChild(el);
+      }
     }
-    for(yy = 0; yy < arr.length; yy++) {
-        el = document.createElement("option");
-        el.value = arr[yy];
-        el.innerText = arr[yy];
-        target.appendChild(el);
-    }
+    function filteringredients(parent, val) {
+      if(val == "All") {
+          populatelist(select_ingredient, listall(alasql('SELECT Name FROM ?', [db]), "Name"));
+      }
+      else {
+          populatelist(select_ingredient, listall(alasql('SELECT Name FROM ? WHERE Category = "'+val+'"', [db]), "Name"));
+      }
     }
 
     var standards = fetch("https://ratikkk.github.io/cat-food-nutrition-standards.json");
@@ -87,14 +94,6 @@
     var select_group = $(".item select.group")[0];
     var select_ingredient = $(".item .ingredient select")[0];
 
-    function filteringredients(val) {
-    if(val == "All") {
-        populatelist(select_ingredient, listall(alasql('SELECT Name FROM ?', [db]), "Name"));
-    }
-    else {
-        populatelist(select_ingredient, listall(alasql('SELECT Name FROM ? WHERE Category = "'+val+'"', [db]), "Name"));
-    }
-    }
 
 
     //onload
