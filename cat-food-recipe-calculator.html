@@ -47,17 +47,6 @@
     </section>
   </div>
   <script>
-    var standards = fetch("https://ratikkk.github.io/cat-food-nutrition-standards.json");
-    fetch("https://ratikkk.github.io/db.json").then(response => {
-      var db = JSON.stringify(response.json()).replaceAll(/" {1,}/g, '"');
-      db = db.replaceAll(/ {1,}"/g, '"');
-      db = db.replaceAll(/"-"/g, '""');
-      db = JSON.parse(db);
-      var categories = listall(alasql('SELECT DISTINCT Category FROM ?', [db]),"Category");
-      populatelist(select_group, categories);
-      filteringredients("", "All")
-    });
-
     function listall(obj, field) {
       var out = [];
       for (xx=0; xx<obj.length; xx++){
@@ -84,6 +73,17 @@
           populatelist(select_ingredient, listall(alasql('SELECT Name FROM ? WHERE Category = "'+val+'"', [db]), "Name"));
       }
     }
+
+    var standards = fetch("https://ratikkk.github.io/cat-food-nutrition-standards.json");
+    fetch("https://ratikkk.github.io/db.json").then(response => {
+      db = JSON.stringify(response.json()).replaceAll(/" {1,}/g, '"');
+      db = db.replaceAll(/ {1,}"/g, '"');
+      db = db.replaceAll(/"-"/g, '""');
+      db = JSON.parse(db);
+      var categories = listall(alasql('SELECT DISTINCT Category FROM ?', [db]),"Category");
+      populatelist(select_group, categories);
+      filteringredients("", "All")
+    });
 
 
 
